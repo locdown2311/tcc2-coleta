@@ -7,7 +7,7 @@ cd /usr/src/tcc/dados_brutos ;
 python ../scripts/leituraGeral.py
 #run seleciona.sh for each file in /scripts, skip if leituraGeral.py
 for file in ../scripts/*; do
-    if [ "$file" != "../scripts/leituraGeral.py" ]; then
+    if [ "$file" != "../scripts/leituraGeral.py" && "$file" != "../scripts/requirements.txt" ]; then
         echo "Running $file"
         python $file
     fi
