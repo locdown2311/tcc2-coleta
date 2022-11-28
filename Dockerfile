@@ -14,9 +14,7 @@ COPY scripts/leituraRadius.py .
 COPY scripts/readInput_ruckos.py .
 COPY scripts/readSend_ruckos.py .
 COPY scripts/leituraGeral.py .
-COPY seleciona.sh .
 
-RUN chmod +x seleciona.sh
 WORKDIR /usr/src/tcc
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
