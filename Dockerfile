@@ -17,9 +17,9 @@ COPY scripts/leituraGeral.py .
 COPY seleciona.sh .
 
 RUN chmod +x seleciona.sh
-RUN chmod +x entrypoint.sh
 WORKDIR /usr/src/tcc
 COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 RUN mkdir -p dados_brutos
 RUN mkdir -p dados_filtrados
 
