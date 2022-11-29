@@ -17,6 +17,22 @@ def inputRuckos(infile):
     return important
 
 
+def controladoraRuckos(infile):
+    important = []
+    keep_phrases = ["ieee80211_input()"]
+
+    with open(infile) as f:
+        f = f.readlines()
+
+    for line in f:
+        for phrase in keep_phrases:
+            if phrase in line:
+                important.append(line)
+                break
+
+    return important
+
+
 def hostapd(infile):
     important = []
     keep_phrases = ["hostapd"]
@@ -65,6 +81,7 @@ def leituraRadius(infile):
 
 
 if __name__ == '__main__':
+    ipControladora = ['10.0.10.5']
     ipsRuckus = [
         '10.0.10.6',
         '10.0.10.29',
@@ -124,6 +141,12 @@ if __name__ == '__main__':
                 shutil.copyfileobj(fd, wfd)
         except OSError:
             pass
+    with open('all_controladora_ruckos.txt', 'ab') as wfd:
+        try:
+            with open(ipControladora, 'rb') as fd:
+                shutil.copyfileobj(fd, wfd)
+        except OSError:
+            pass
 
     importantVETsendMsg = sendMsg('all_ruckus.txt')
     importantVETinput = inputRuckos('all_ruckus.txt')
@@ -135,6 +158,7 @@ if __name__ == '__main__':
     with open('dados_input_ruckos.csv', 'a') as f:
         for line in importantVETinput:
             f.write(line)
+    #Ubi e Radius ainda não foram filtrados
     with open('dados_hostapd_ubi.csv', 'a') as f:
         for line in importantVEThostapd:
             f.write(line)
