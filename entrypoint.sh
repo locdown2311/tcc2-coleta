@@ -2,7 +2,7 @@
 # Path: entrypoint.sh
 
 cd /usr/src/tcc/dados_brutos ;
-./baixaLogs.sh ;
+../scripts/baixaLogs.sh ;
 #run leituraGeral.py first
 python ../scripts/leituraGeral.py
 
@@ -12,3 +12,5 @@ for file in /usr/src/tcc/scripts/*.py; do
         python "$file"
     fi
 done
+
+../scripts/deletaLogs.sh ;
