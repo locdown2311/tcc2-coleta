@@ -14,6 +14,7 @@ COPY scripts/leituraRadius.py .
 COPY scripts/readInput_ruckos.py .
 COPY scripts/readSend_ruckos.py .
 COPY scripts/leituraGeral.py .
+COPY scripts/baixaLogs.sh .
 
 WORKDIR /usr/src/tcc
 COPY entrypoint.sh .
