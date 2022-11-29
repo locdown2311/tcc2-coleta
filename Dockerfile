@@ -15,7 +15,9 @@ COPY scripts/readInput_ruckos.py .
 COPY scripts/readSend_ruckos.py .
 COPY scripts/leituraGeral.py .
 COPY scripts/baixaLogs.sh .
+COPY scripts/deletaLogs.sh .
 RUN chmod +x baixaLogs.sh
+RUN chmod +x deletaLogs.sh
 
 WORKDIR /usr/src/tcc
 COPY entrypoint.sh .
